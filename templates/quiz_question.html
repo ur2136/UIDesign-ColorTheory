@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block content %}
+
+<h1>Quiz</h1>
+<h3>0:30 (timer)</h3>
+
+<p>Question #__: Question</p>
+
+<!-- 8 buttons to adjust color droplets
+     attemptColor background-color should change 
+     depending on the color droplets amount
+-->
+
+<div class="attemptColor"></div>
+<div class="targetColor">TARGET</div>
+
+<!-- 1) first calculate similarity between attemptColor and targetColor
+     2) make sure to send this calculation to backend (prob javascript
+        for each individual question)
+     3) these shoulld come up after the 30 seconds are over-->
+<div class="result">95%</div>
+
+<!-- should send us to the next question
+     if all 5 questions have been answered, send to quiz_end.html-->
+<button class="next">Next</button>
+
+{% endblock %}
