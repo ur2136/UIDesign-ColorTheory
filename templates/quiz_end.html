@@ -1,8 +1,12 @@
 {% extends "layout.html" %} {% block content %}
 
+<script>
+  let finalScore = {{finalScore|tojson}};
+</script>
+
 <h1>Quiz</h1>
 
-<p>You scored: ___</p>
+<p>You scored: {{finalScore}}%</p>
 <!-- should map score range to message so the 
      following could change based on score -->
 <p>Well done! You've earned the title of Sir Mix-a-Lot!</p>
