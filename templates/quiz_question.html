@@ -12,7 +12,7 @@
 <h1>Quiz</h1>
 <h3 class="timer"></h3>
 
-<p>Question #__: {{data.question}}</p>
+<p>Question #{{data.id}}: {{data.question}}</p>
 
 <!-- 8 buttons to adjust color droplets
      attemptColor background-color should change 
@@ -24,8 +24,8 @@
 
 <div class="result"></div>
 
-<!-- should send us to the next question
-     if all 5 questions have been answered, send to quiz_end.html-->
-<button class="next">Next</button>
-
-{% endblock %}
+{% if data.id < 5 %}
+<a class="next">Next</a>
+{% elif data.id == 5 %}
+<a href="/quizEnd">End Quiz</a>
+{% endif %} {% endblock %}

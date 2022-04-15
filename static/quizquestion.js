@@ -1,11 +1,11 @@
-function startTimer() {
-  let timeLeft = 30;
+function startTimer(question) {
+  let timeLeft = 2;
   let timerId = setInterval(countdown, 1000);
 
   function countdown() {
     if (timeLeft == -1) {
       clearTimeout(timerId);
-      setResults();
+      setResults(question);
     } else {
       $(".timer").html(timeLeft + " seconds remaining");
       timeLeft--;
@@ -31,17 +31,30 @@ function calculateResults(attempt, target) {
   return Math.abs(perc1 - perc2);
 }
 
-function setResults() {
+function setResults(question) {
   // disable droplet buttons to prevent further edits
 
   let attemptColor = $(".attemptColor").css("background-color");
   let targetColor = $(".targetColor").css("background-color");
-  const results = calculateResults(attemptColor, targetColor);
-  $(".result").html(results + "%");
+  const result = calculateResults(attemptColor, targetColor);
+  $(".result").html(result + "%");
   $(".result").show();
   $(".next").show();
 
-  // make sure to send this calculation to backend server
+  sendResults(result, question);
+  $(".next").attr("href", "/quiz/" + parseInt(question + 1));
+}
+
+function sendResults(result, question) {
+  $.ajax({
+    type: "POST",
+    url: "/addScore",
+    data: { id: question, result: result },
+    success: function () {},
+    error: function (request, status, error) {
+      console.log(error);
+    },
+  });
 }
 
 $(document).ready(function () {
@@ -50,7 +63,7 @@ $(document).ready(function () {
   $(".targetColor").css("background-color", data.targetColor);
   $(".result").hide();
   $(".next").hide();
-  startTimer();
+  startTimer(data.id);
 
   // TODO: create droplets
 
