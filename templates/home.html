@@ -1,4 +1,5 @@
 {% extends "layout.html" %} {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
 
 <h3>Do your paintings look washed out? Muddy? Generally lackluster?</h3>
 
@@ -10,5 +11,8 @@
   Click on the lessons above to learn how to avoid common paint mixing mistakes,
   and take the quiz when you’re ready.
 </p>
+<br/>
+<br/>
+<button id="learn-btn">Start Learning!</button>
 
 {% endblock %}

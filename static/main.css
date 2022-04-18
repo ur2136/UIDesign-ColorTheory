@@ -4,3 +4,153 @@
   height: 150px;
   width: 250px;
 }
+
+.shape{
+	height: 150px;
+	width: 150px;
+	cursor: pointer;
+}
+
+.shape:hover{
+	background: grey;
+}
+
+.inner-shape{
+	height: 50px;
+	width: 50px;
+}
+
+.select-first{
+	border-color: "black";
+	border-width: "4px";
+	border-style: "solid";
+}
+
+.display-image{
+	max-width: 50%;
+	max-height: 50%;
+}
+
+form {
+  width: 50px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-bottom: 20px;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+input#blackNum, #whiteNum, #redNum, #orangeNum, #yellowNum, #greenNum, #blueNum, #purpleNum {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 15px;
+  height: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.black {
+  background-color: black;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+
+.white {
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+.red {
+  background-color: red;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+
+}
+
+.orange {
+  background-color: orange;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+
+.yellow {
+  background-color: yellow;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+
+.green {
+  background-color: green;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+
+.blue {
+  background-color: blue;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}
+
+.purple {
+  background-color: purple;
+  border: 2px solid grey;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+}

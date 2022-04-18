@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script>
+    let lesson = {{lesson|tojson}} 
+    let lesson_id = {{lesson_id|tojson}}
+</script>
+	<h1>{{lesson.title}}</h1>
+	<br>
+	<br>
+	<p>{{lesson.text}}</p>
+	<br>
+	{% if "display_image" in lesson %}
+	<img class="display-image" src="{{lesson.display_image}}"/> 
+	{% endif %}
+	<br>
+	<br>
+	<div class="result-color row">
+
+	</div>
+	<br>
+	<button id="next_button">Next</button>
+
+{% endblock %}
