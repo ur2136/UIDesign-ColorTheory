@@ -1,0 +1,111 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizquestion.js') }}"
+></script>
+
+<script>
+  let data = {{data|tojson}};
+</script>
+
+<h1>Quiz</h1>
+<h3 class="timer"></h3>
+
+<p>Question #{{data.id}}: {{data.question}}</p>
+
+<!-- 8 buttons to adjust color droplets
+     attemptColor background-color should change 
+     depending on the color droplets amount
+-->
+
+<div class="row col-md-12">
+<div class = "container col-md-4">
+  
+
+    <form class="black">
+      <div class="value-button" id="decreaseBlack" onclick="decreaseBlack()" value="Decrease Value">-</div>
+      <input type="number" id="blackNum" value="0" />
+      <div class="value-button" id="increaseBlack" onclick="increaseBlack()" value="Increase Value">+</div>
+    </form>
+
+  
+
+
+    <form class="white">
+      <div class="value-button" id="decreaseWhite" onclick="decreaseWhite()" value="Decrease Value">-</div>
+      <input type="number" id="whiteNum" value="0" />
+      <div class="value-button" id="increaseWhite" onclick="increaseWhite()" value="Increase Value">+</div>
+    </form>
+
+ 
+
+    <form class="red">
+      <div class="value-button" id="decreaseRed" onclick="decreaseRed()" value="Decrease Value">-</div>
+      <input type="number" id="redNum" value="0" />
+      <div class="value-button" id="increaseRed" onclick="increaseRed()" value="Increase Value">+</div>
+    </form>
+
+  
+
+    <form class="orange">
+      <div class="value-button" id="decreaseOrange" onclick="decreaseOrange()" value="Decrease Value">-</div>
+      <input type="number" id="orangeNum" value="0" />
+      <div class="value-button" id="increaseOrange" onclick="increaseOrange()" value="Increase Value">+</div>
+    </form>
+
+  
+
+    <form class="yellow">
+      <div class="value-button" id="decreaseYellow" onclick="decreaseYellow()" value="Decrease Value">-</div>
+      <input type="number" id="yellowNum" value="0" />
+      <div class="value-button" id="increaseYellow" onclick="increaseYellow()" value="Increase Value">+</div>
+    </form>
+
+  
+
+    <form class="green">
+      <div class="value-button" id="decreaseGreen" onclick="decreaseGreen()" value="Decrease Value">-</div>
+      <input type="number" id="greenNum" value="0" />
+      <div class="value-button" id="increaseGreen" onclick="increaseGreen()" value="Increase Value">+</div>
+    </form>
+
+  
+
+    <form class="blue">
+      <div class="value-button" id="decreaseBlue" onclick="decreaseBlue()" value="Decrease Value">-</div>
+      <input type="number" id="blueNum" value="0" />
+      <div class="value-button" id="increaseBlue" onclick="increaseBlue()" value="Increase Value">+</div>
+    </form>
+
+  
+    <form class="purple">
+      <div class="value-button" id="decreasePurple" onclick="decreasePurple()" value="Decrease Value">-</div>
+      <input type="number" id="purpleNum" value="0" />
+      <div class="value-button" id="increasePurple" onclick="increasePurple()" value="Increase Value">+</div>
+    </form>
+
+  
+
+</div>
+ 
+
+<div class="container col-md-8">
+
+  <div class="attemptColor"></div>
+  <div class="targetColor">TARGET</div>
+
+  <div class="result"></div>
+
+  {% if data.id < 5 %}
+  <a class="next">Next</a>
+  {% elif data.id == 5 %}
+  <a href="/quizEnd">End Quiz</a>
+  {% endif %} {% endblock %}
+</div>
+
+
+
+
+</div>
+
