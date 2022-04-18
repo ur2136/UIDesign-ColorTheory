@@ -11,35 +11,30 @@ quiz_data = {
         "id": 1,
         "question": "Match the target skin tone below",
         "targetColor": "#d6b394",
-        "answer": [3, 2, 1, 4, 0, 0, 2, 2],
         "userResult": None,
     },
     2: {
         "id": 2,
         "question": "Match the target skin tone below",
         "targetColor": "#d6b394",
-        "answer": [3, 2, 1, 4, 0, 0, 2, 2],
         "userResult": None,
     },
     3: {
         "id": 3,
         "question": "Match the target skin tone below",
         "targetColor": "#d6b394",
-        "answer": [3, 2, 1, 4, 0, 0, 2, 2],
         "userResult": None,
     },
     4: {
         "id": 4,
         "question": "Match the target skin tone below",
         "targetColor": "#d6b394",
-        "answer": [3, 2, 1, 4, 0, 0, 2, 2],
         "userResult": None,
     },
     5: {
         "id": 5,
         "question": "Match the target skin tone below",
         "targetColor": "#d6b394",
-        "answer": [3, 2, 1, 4, 0, 0, 2, 2],
         "userResult": None,
     }
 }
@@ -73,7 +68,6 @@ def quiz_end():
     # get all scores and average
     sum = 0
     for obj in quiz_data:
-        print(quiz_data[obj])
         sum += int(quiz_data[obj]["userResult"])
     avg = sum / 5
     return render_template('quiz_end.html', finalScore = avg)  
