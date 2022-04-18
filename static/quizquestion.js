@@ -1,5 +1,5 @@
 function startTimer(question) {
-  let timeLeft = 2;
+  let timeLeft = 10;
   let timerId = setInterval(countdown, 1000);
 
   function countdown() {
