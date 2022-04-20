@@ -1,5 +1,10 @@
 {% extends "layout.html" %} {% block content %}
 
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizend.js') }}"
+></script>
+
 <script>
   let finalScore = {{finalScore|tojson}};
 </script>
@@ -7,10 +12,9 @@
 <h1>Quiz</h1>
 
 <p>You scored: {{finalScore}}%</p>
-<!-- should map score range to message so the 
-     following could change based on score -->
-<p>Well done! You've earned the title of Sir Mix-a-Lot!</p>
+<p class="resultmessage"></p>
 
 <a href="/">Home</a>
+<a href="/quiz">Retry the quiz</a>
 
 {% endblock %}

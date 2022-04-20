@@ -1,7 +1,6 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, request, jsonify,render_template
 import json
-from flask import Response, request, jsonify
+import random
 app = Flask(__name__)
 
 lesson_data = {
@@ -88,38 +87,7 @@ lesson_data = {
     }
 }
 # ideally we want to randomize the question order
-quiz_data = {
-    1: {
-        "id": 1,
-        "question": "Match the target skin tone below",
-        "targetColor": "#d6b394",
-        "userResult": None,
-    },
-    2: {
-        "id": 2,
-        "question": "Match the target skin tone below",
-        "targetColor": "#d6b394",
-        "userResult": None,
-    },
-    3: {
-        "id": 3,
-        "question": "Match the target skin tone below",
-        "targetColor": "#d6b394",
-        "userResult": None,
-    },
-    4: {
-        "id": 4,
-        "question": "Match the target skin tone below",
-        "targetColor": "#d6b394",
-        "userResult": None,
-    },
-    5: {
-        "id": 5,
-        "question": "Match the target skin tone below",
-        "targetColor": "#d6b394",
-        "userResult": None,
-    }
-}
+quiz_data = {}
 
 @app.route('/')
 def home():
@@ -129,7 +97,6 @@ def home():
 @app.route('/learn/<lesson_id>')
 def learn(lesson_id):
     lesson = lesson_data[lesson_id]
-    print(lesson)
     return render_template('learn.html',lesson_id=lesson_id,lesson=lesson)
 
 @app.route('/learn/<lesson_id>/<sublesson_id>')
@@ -199,6 +166,7 @@ def get_completed(lesson_id):
 
 @app.route('/quiz')
 def quiz_home():
+    populate_questions()
     return render_template('quiz_home.html')  
 
 @app.route('/quiz/<id>')
@@ -227,9 +195,17 @@ def add_score():
     quiz_data[int(id)] = question
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
+# HELPER FUNCTIONS
+def populate_questions():
+    chars = '0123456789ABCDEF'
+    colors = ['#'+''.join(random.sample(chars,6)) for i in range(5)]
+    global quiz_data
+    for i in range(len(colors)):
+        quiz_data[i+1] = {
+            "id": i+1,
+            "question": "Using what you learned about color mixing, match the color below",
+            "targetColor": colors[i],
+            "userResult": None,
+        }
 if __name__ == '__main__':
    app.run(debug = True)
-
-
-
-

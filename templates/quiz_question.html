@@ -183,11 +183,14 @@
 
     <div class="result"></div>
 
-    {% if data.id < 5 %}
-    <a class="next">Next</a>
-    {% elif data.id == 5 %}
-    <a href="/quizEnd">End Quiz</a>
-    {% endif %}
+    <div>
+      <button class="submit">Submit</button>
+      {% if data.id < 5 %}
+      <a class="next">Next</a>
+      {% elif data.id == 5 %}
+      <a class="endquiz" href="/quizEnd">End Quiz</a>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock %}

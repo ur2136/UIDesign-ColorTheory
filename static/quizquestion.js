@@ -1,16 +1,23 @@
 function startTimer(question) {
-  let timeLeft = 10;
+  let timeLeft = 30;
   let timerId = setInterval(countdown, 1000);
 
   function countdown() {
     if (timeLeft == -1) {
       clearTimeout(timerId);
+      $(".submit").hide();
       setResults(question);
     } else {
       $(".timer").html(timeLeft + " seconds remaining");
       timeLeft--;
     }
   }
+
+  $(".submit").click(function (e) {
+    clearTimeout(timerId);
+    $(".submit").hide();
+    setResults(data.id);
+  });
 }
 
 function calculateResults(attempt, target) {
@@ -42,7 +49,12 @@ function setResults(question) {
   $(".next").show();
 
   sendResults(result, question);
-  $(".next").attr("href", "/quiz/" + parseInt(question + 1));
+
+  if (question < 5) {
+    $(".next").attr("href", "/quiz/" + parseInt(question + 1));
+  } else {
+    $(".endquiz").show();
+  }
 }
 
 function sendResults(result, question) {
@@ -51,7 +63,7 @@ function sendResults(result, question) {
     url: "/addScore",
     data: { id: question, result: result },
     success: function () {},
-    error: function (request, status, error) {
+    error: function (error) {
       console.log(error);
     },
   });
@@ -229,8 +241,8 @@ $(document).ready(function () {
   // set up quiz
   $(".attemptColor").css("background-color", "#ffffff");
   $(".targetColor").css("background-color", data.targetColor);
-  $(".result").hide();
-  $(".next").hide();
+  $(".result, .next, .endquiz").hide();
+
   startTimer(data.id);
 
   calculateNewColor();
