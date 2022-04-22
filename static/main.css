@@ -5,30 +5,30 @@
   width: 250px;
 }
 
-.shape{
-	height: 150px;
-	width: 150px;
-	cursor: pointer;
+.shape {
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
 }
 
-.shape:hover{
-	background: grey;
+.shape:hover {
+  background: grey;
 }
 
-.inner-shape{
-	height: 50px;
-	width: 50px;
+.inner-shape {
+  height: 50px;
+  width: 50px;
 }
 
-.select-first{
-	border-color: "black";
-	border-width: "4px";
-	border-style: "solid";
+.select-first {
+  border-color: "black";
+  border-width: "4px";
+  border-style: "solid";
 }
 
-.display-image{
-	max-width: 50%;
-	max-height: 50%;
+.display-image {
+  max-width: 50%;
+  max-height: 50%;
 }
 
 form {
@@ -76,7 +76,7 @@ form #input-wrap {
   padding: 0px;
 }
 
-input#blackNum, #whiteNum, #redNum, #orangeNum, #yellowNum, #greenNum, #blueNum, #purpleNum {
+input {
   text-align: center;
   border: none;
   border-top: 1px solid #ddd;
@@ -86,10 +86,10 @@ input#blackNum, #whiteNum, #redNum, #orangeNum, #yellowNum, #greenNum, #blueNum,
   height: 20px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .black {
@@ -112,7 +112,6 @@ input[type=number]::-webkit-outer-spin-button {
   height: 50px;
   width: 100px;
   padding: 10px;
-
 }
 
 .orange {

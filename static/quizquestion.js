@@ -1,3 +1,14 @@
+const colors = [
+  "black",
+  "white",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+];
+
 function startTimer(question) {
   let timeLeft = 30;
   let timerId = setInterval(countdown, 1000);
@@ -20,8 +31,13 @@ function startTimer(question) {
   });
 }
 
+/**
+ * Calculates the percentage difference between two colors
+ *
+ * @param attempt The user-attempted color
+ * @param target The target color that the user must match
+ */
 function calculateResults(attempt, target) {
-  // get percentage difference between two colors
   if (!attempt && !target) return;
 
   let attemptColor = attempt.replace(/[^\d,]/g, "").split(",");
@@ -39,8 +55,7 @@ function calculateResults(attempt, target) {
 }
 
 function setResults(question) {
-  // disable droplet buttons to prevent further edits
-
+  $(".increase, .decrease").prop("disabled", true);
   let attemptColor = $(".attemptColor").css("background-color");
   let targetColor = $(".targetColor").css("background-color");
   const result = 100 - calculateResults(attemptColor, targetColor);
@@ -57,6 +72,12 @@ function setResults(question) {
   }
 }
 
+/**
+ * Ajax function that sends result to server
+ *
+ * @param result Percentage result
+ * @param question Question id
+ */
 function sendResults(result, question) {
   $.ajax({
     type: "POST",
@@ -69,181 +90,40 @@ function sendResults(result, question) {
   });
 }
 
-function increaseBlack() {
-  var value = parseInt(document.getElementById("blackNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("blackNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseBlack() {
-  var value = parseInt(document.getElementById("blackNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("blackNum").value = value;
-  calculateNewColor();
-}
-
-function increaseWhite() {
-  var value = parseInt(document.getElementById("whiteNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("whiteNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseWhite() {
-  var value = parseInt(document.getElementById("whiteNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("whiteNum").value = value;
-  calculateNewColor();
-}
-
-function increaseRed() {
-  var value = parseInt(document.getElementById("redNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("redNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseRed() {
-  var value = parseInt(document.getElementById("redNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("redNum").value = value;
-  calculateNewColor();
-}
-
-function increaseOrange() {
-  var value = parseInt(document.getElementById("orangeNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("orangeNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseOrange() {
-  var value = parseInt(document.getElementById("orangeNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("orangeNum").value = value;
-  calculateNewColor();
-}
-
-function increaseYellow() {
-  var value = parseInt(document.getElementById("yellowNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("yellowNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseYellow() {
-  var value = parseInt(document.getElementById("yellowNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("yellowNum").value = value;
-  calculateNewColor();
-}
-
-function increaseGreen() {
-  var value = parseInt(document.getElementById("greenNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("greenNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseGreen() {
-  var value = parseInt(document.getElementById("greenNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("greenNum").value = value;
-  calculateNewColor();
-}
-
-function increaseBlue() {
-  var value = parseInt(document.getElementById("blueNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("blueNum").value = value;
-  calculateNewColor();
-}
-
-function decreaseBlue() {
-  var value = parseInt(document.getElementById("blueNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("blueNum").value = value;
-  calculateNewColor();
-}
-
-function increasePurple() {
-  var value = parseInt(document.getElementById("purpleNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById("purpleNum").value = value;
-  calculateNewColor();
-}
-
-function decreasePurple() {
-  var value = parseInt(document.getElementById("purpleNum").value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-  document.getElementById("purpleNum").value = value;
-  calculateNewColor();
-}
-
+/**
+ * Calculates new color with adjusted weights
+ */
 function calculateNewColor() {
-  var black = parseInt(document.getElementById("blackNum").value, 10);
-  var white = parseInt(document.getElementById("whiteNum").value, 10);
-  var red = parseInt(document.getElementById("redNum").value, 10);
-  var orange = parseInt(document.getElementById("orangeNum").value, 10);
-  var yellow = parseInt(document.getElementById("yellowNum").value, 10);
-  var green = parseInt(document.getElementById("greenNum").value, 10);
-  var blue = parseInt(document.getElementById("blueNum").value, 10);
-  var purple = parseInt(document.getElementById("purpleNum").value, 10);
-
-  //hex is # RRGGBB
-  //black = - all
-  //white = + all
-  //orange = + r&y
-  //green = + y&b
-  //purple = + b&r
-
-  //start with white == #ffffff (black = #000000)
-  // hex is 0 1 2 3 4 5 6 7 8 9 a b c d e f(15)
-  // 00    0a    5f    ff
-  // 00 05 0a 0f 5f af ff
-
-  var r = (red * 2 + orange + purple + white - black) * 10;
-  var g = (green * 2 + white - black) * 10;
-  var b = (blue * 2 + purple + green + white - black) * 10;
-
-  var color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-  //hexString = yourNumber.toString(16);
-  console.log(color);
-  $(".attemptColor").css("background-color", color);
+  let colorVals = colors.map(function (color) {
+    return [parseInt($("#" + color + "Num").val())];
+  });
+  // using external js library chroma for weighted color mixing
+  $.getScript("/static/chroma.min.js", function () {
+    let newColor = chroma.average(colors, "rgb", colorVals);
+    $(".attemptColor").css("background-color", newColor.hex());
+  });
 }
 
 $(document).ready(function () {
-  // set up quiz
+  // Set up quiz
   $(".attemptColor").css("background-color", "#ffffff");
   $(".targetColor").css("background-color", data.targetColor);
   $(".result, .next, .endquiz").hide();
 
   startTimer(data.id);
 
-  calculateNewColor();
+  // onClick function when user increases or decreases droplets
+  $(".increase, .decrease").click(function () {
+    let color = $(this).attr("id");
+    let action = $(this).attr("class");
+    const input = $("#" + color + "Num");
+    let value = parseInt(input.val());
+    if (action === "increase") {
+      value = isNaN(value) ? 0 : value + 1;
+    } else if (action === "decrease") {
+      value = isNaN(value) || value === 0 ? 0 : value - 1;
+    }
+    input.val(value);
+    calculateNewColor();
+  });
 });
