@@ -1,11 +1,12 @@
 {% extends "layout.html" %} {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'chroma.min.js') }}"></script>
 <script>
     let lesson = {{lesson|tojson}} 
     let lesson_id = {{lesson_id|tojson}}
 </script>
 	<div class="lesson-div">
-	<h1>{{lesson.title}}</h1>
+	<h2>{{lesson.title}}</h2>
 	<br>
 	<br>
 	<p>{{lesson.text}}</p>
@@ -19,7 +20,7 @@
 
 	</div>
 	<br>
-	<div class="text-center"><button id="next_button">Next</button></div>
+	<div class="text-center footer"><button class="next-btn">Next</button></div>
 	<div>
 
 {% endblock %}

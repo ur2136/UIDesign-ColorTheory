@@ -6,11 +6,14 @@ function displayBoxes(sublesson){
 	$.each(sublesson['colors'], function(index, value){
 		let new_shape_text = $('<div>')
 		$(new_shape_text).text(sublesson["display_text"][index])
+		let new_shape_number = $('<div class="step">')
+		$(new_shape_number).text(sublesson["numbers"][index])
 		if(index==0)
 		{
 			let new_shape_div = $('<div class="shape-cls">')
 			let new_shape = $('<div class="shape">')
 			$(new_shape).css('background-color',sublesson['initial_colors'][index])
+			$(new_shape_div).append(new_shape_number)
 			$(new_shape_div).append(new_shape)
 			$(new_shape_div).append(new_shape_text)
 			$(".result").append(new_shape_div)
@@ -23,6 +26,7 @@ function displayBoxes(sublesson){
 			$(inner_shape).css('background-color',sublesson['add_colors'][index-1])
 			$(inner_shape).attr({'color': value})
 			$(new_shape).append(inner_shape)
+			$(new_shape_div).append(new_shape_number)
 			$(new_shape_div).append(new_shape)
 			$(new_shape_div).append(new_shape_text)
 			$(".result").append(new_shape_div)
@@ -41,6 +45,7 @@ function displayBoxes(sublesson){
 			let new_shape_div = $('<div class="shape-cls">')
 			let new_shape = $('<div class="shape">')
 			$(new_shape).css('background-color',sublesson['initial_colors'][index])
+			$(new_shape_div).append(new_shape_number)
 			$(new_shape_div).append(new_shape)
 			$(new_shape_div).append(new_shape_text)
 			$(".result").append(new_shape_div)
@@ -53,11 +58,11 @@ function displayBoxes(sublesson){
 function displayOptions(){
 	$(".result-color").empty()
 	$.each(images,function(index,value){
-		let new_shape_div = $('<div>')
+		let new_shape_div = $('<div class="option-div">')
 		let new_shape = $('<img class="shape-opt">')
 		if(index + 1 == sublesson["sublesson_id"])
 		{
-			$(new_shape).css({"border-color": "blue", 
+			$(new_shape).css({"border-color": "#16e0bd", 
              "border-width":"4px", 
              "border-style":"solid"})
 		}
@@ -76,11 +81,11 @@ function displayOptionsSkin(){
 	$(".result-color").empty()
 	console.log(options)
 	$.each(options,function(index,value){
-		let new_option_div = $('<div class="col-md-4>')
-		let new_option = $('<div>')
+		let new_option_div = $('<div class="col-md-4 option-div>')
+		let new_option = $('<div class="skin-o">')
 		if(index + 1 == sublesson["sublesson_id"])
 		{
-			$(new_option).css({"border-color": "blue", 
+			$(new_option).css({"border-color": "#16e0bd", 
              "border-width":"4px", 
              "border-style":"solid"})
 		}
@@ -107,7 +112,10 @@ function displaySkinBoxes(sublesson){
 			$(new_shape).css('background-color',sublesson['colors'][index])
 			$.each(sublesson["add_colors_1"], function(index,value){
 				let inner_shape = $('<div class="inner-shape">')
+				let inner_shape_text = $('<div class="inner-text">')
+				$(inner_shape_text).text(sublesson["numbers_1"][index])
 				$(inner_shape).css('background-color',value)
+				$(inner_shape).append(inner_shape_text)
 				$(inner_shape).attr({'color': sublesson["result_colors_1"][index]})
 				$(new_shape).append(inner_shape)
 				$(inner_shape).click(function(event){
@@ -136,8 +144,11 @@ function displaySkinBoxes(sublesson){
 			$(new_shape).css('background-color',sublesson['colors'][index])
 			$.each(sublesson["add_colors_2"], function(index,value){
 				let inner_shape = $('<div class="inner-shape">')
+				let inner_shape_text = $('<div class="inner-text">')
+				$(inner_shape_text).text(sublesson["numbers_2"][index])
 				$(inner_shape).css('background-color',value)
 				$(inner_shape).attr({'color': sublesson["result_colors_2"][index]})
+				$(inner_shape).append(inner_shape_text)
 				$(new_shape).append(inner_shape)
 				$(inner_shape).click(function(event){
 					// $(inner_shape).css('background-color',$(this).attr('color'))
@@ -164,7 +175,7 @@ function displaySkinBoxes(sublesson){
 function displayButtons()
 {
 	$(".footer").empty()
-	let back_button = $("<button>")
+	let back_button = $("<button class='back-btn'>")
 	$(back_button).text("Back")
 	$(".footer").append(back_button)
 	$(back_button).click(function(event){
@@ -181,7 +192,7 @@ function displayButtons()
 
 			if(! clicked.includes("False"))
 			{
-				let next_button = $("<button>")
+				let next_button = $("<button class='next-btn'>")
 				$(next_button).text("Next")
 				$(".footer").append(next_button)
 				let next_sublesson = parseInt(sublesson["sublesson_id"]) + 1
@@ -205,7 +216,7 @@ function displayButtons()
 
 			if(! clicked_1.includes("False") && ! clicked_2.includes("False"))
 			{
-				let next_button = $("<button>")
+				let next_button = $("<button class='next-btn'>")
 				$(next_button).text("Next")
 				$(".footer").append(next_button)
 				let next_sublesson = parseInt(sublesson["sublesson_id"]) + 1
@@ -222,11 +233,7 @@ function displayButtons()
 				})
 			}
 		}
-
 	})
-
-
-
 }
 
 $(document).ready(function(){

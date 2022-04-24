@@ -11,7 +11,7 @@ function displayButtons(lesson){
 function displayOptionsSkin(lesson){
 	$(".result-color").empty()
 	$.each(lesson["options"],function(index,value){
-		let new_option_div = $('<div>')
+		let new_option_div = $('<div class="option-div skin-opt">')
 		let new_option = $('<div class="skin-option">')
 		if(index==0)
 		{
@@ -32,7 +32,7 @@ function displayOptionsSkin(lesson){
 function displayOptions(lesson){
 	$(".result-color").empty()
 	$.each(lesson["images"],function(index,value){
-		let new_shape_div = $('<div>')
+		let new_shape_div = $('<div class="option-div">')
 		let new_shape = $('<img class="img-option">')
 		if(index==0)
 		{

@@ -3,7 +3,6 @@
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'sublessons.js') }}"></script>
-
 <script>
     let sublesson = {{sublesson|tojson}} 
     let lesson_id = {{lesson_id|tojson}}
