@@ -13,6 +13,7 @@
   height: 30px;
   width: 30px;
   margin-bottom: 6px;
+  align-items: center;
 }
 
 .inner-text{
@@ -22,6 +23,7 @@
   text-align: center;
   color: #16e0bd;
   font-weight: bold;
+  align-items: center;
 }
 
 .home-div{
@@ -316,7 +318,7 @@
   border-radius: 0;
 }
 
-.inner-shape.expandskin{
+.inner-shape-skin.expandskin{
   height: 250px;
   width: 250px;
   border-radius: 0;
@@ -336,6 +338,11 @@
   border-radius: 50%;
   transition: all 0.4s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .inner-shape-skin:hover{

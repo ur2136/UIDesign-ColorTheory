@@ -120,7 +120,7 @@ function displaySkinBoxes(sublesson){
 				$(new_shape).append(inner_shape)
 				$(inner_shape).click(function(event){
 					// $(inner_shape).css('background-color',$(this).attr('color'))
-					$(inner_shape).addClass("expandskin")
+					// $(inner_shape).addClass("expandskin")
 					$(new_shape).css('background-color',$(this).attr('color'))
 					$.post("mark_color_complete", {"lesson_id": lesson_id, 
 					"sublesson_id":sublesson['sublesson_id'],
