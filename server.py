@@ -16,6 +16,7 @@ lesson_data = {
                 "completed": "False",
                 "sublesson_id": "1",
                 "colors": ["#FFED00","#DBD83D","#AA9B39","#AA9B39"],
+                "initial_colors": ["#FFED00","#FFED00","#DBD83D","#AA9B39"],
                 "add_colors": ["blue","violet"],
                 "clicked":["False", "False"],
                 "display_text": ["Local Color: Yellow", "All shadows have a blue element", "Add violet, the complement of yellow", "Target Shadow"]
@@ -24,6 +25,7 @@ lesson_data = {
                 "completed": "False",
                 "sublesson_id": "2",
                 "colors": ["#FFA600","#D5961D","#D5961D","#D5961D"],
+                "initial_colors": ["#FFA600","#FFA600","#D5961D","#D5961D"],
                 "add_colors": ["blue","blue"],
                 "clicked":["False", "False"],
                 "display_text": ["Local Color: Orange", "All shadows have a blue element", "Add blue, the complement of orange", "Target Shadow"]
@@ -32,6 +34,7 @@ lesson_data = {
                 "completed": "False",
                 "sublesson_id": "3",
                  "colors": ["#FF0000","#BF122B","#993222","#993222"],
+                 "initial_colors": ["#FF0000","#FF0000","#BF122B","#993222"],
                  "add_colors": ["blue","green"],
                  "clicked":["False", "False"],
                  "display_text": ["Local Color: Red", "All shadows have a blue element", "Add green, the complement of red", "Target Shadow"]
@@ -81,7 +84,7 @@ lesson_data = {
                 "clicked_2":["False", "False"],
                 "result_colors_1": ["#DBB961", "#FFBD88","#F7BA89"],
                 "result_colors_2": ["#CC7155","#DB9986"],
-                "display_text": ["To make the skin tone warmer, add yellow and a bit of red for an orange undertone. If the tone starts to look too much like a bad fake tan, add a little bit of blue to neutralize the excess orange.", "To make the tone “cooler,” add red and a bit of white for a pink tone"]
+                "display_text": ["To make the skin tone warmer, add yellow and a bit of red for an orange undertone.", "To make the tone “cooler,” add red and a bit of white for a pink undertone"]
             }
         }
     }

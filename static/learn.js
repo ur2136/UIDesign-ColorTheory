@@ -11,17 +11,18 @@ function displayButtons(lesson){
 function displayOptionsSkin(lesson){
 	$(".result-color").empty()
 	$.each(lesson["options"],function(index,value){
-		let new_option_div = $('<div class="col-md-4>')
-		let new_option = $('<div>')
+		let new_option_div = $('<div>')
+		let new_option = $('<div class="skin-option">')
 		if(index==0)
 		{
-			$(new_option).css({"border-color": "blue", 
-             "border-width":"4px", 
-             "border-style":"solid"})
+			// $(new_option).css({"border-color": "blue", 
+   //           "border-width":"4px", 
+   //           "border-style":"solid"})
 		}
 		$(new_option).attr({"id":index+1})
 		$(new_option).text(value)
-		$(".result-color").append(new_option)
+		$(new_option_div).append(new_option)
+		$(".result-color").append(new_option_div)
 		$(new_option).click(function(event){
 			window.location.href = "/learn/"+lesson_id+"/"+$(new_option).attr("id")
 		})
@@ -31,17 +32,19 @@ function displayOptionsSkin(lesson){
 function displayOptions(lesson){
 	$(".result-color").empty()
 	$.each(lesson["images"],function(index,value){
-		let new_shape_div = $('<div class="col-md-4>')
-		let new_shape = $('<img class="shape">')
+		let new_shape_div = $('<div>')
+		let new_shape = $('<img class="img-option">')
 		if(index==0)
 		{
-			$(new_shape).css({"border-color": "blue", 
-             "border-width":"4px", 
-             "border-style":"solid"})
+			// $(new_shape).css({"border-color": "blue", 
+   //           "border-width":"4px", 
+   //           "border-style":"solid"})
+   
 		}
 		$(new_shape).attr("src",value)
 		$(new_shape).attr({"id":index+1})
-		$(".result-color").append(new_shape)
+		$(new_shape_div).append(new_shape)
+		$(".result-color").append(new_shape_div)
 		$(new_shape).click(function(event){
 			window.location.href = "/learn/"+lesson_id+"/"+$(new_shape).attr("id")
 		})

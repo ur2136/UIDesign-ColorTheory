@@ -1,3 +1,102 @@
+.home-div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.lesson-div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.result-color{
+  column-gap: 40px;
+  justify-content: center;
+}
+
+.footer{
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  text-align: center;
+}
+
+.result{
+  display: flex;
+  column-gap: 20px;
+  padding-bottom: 2rem;
+  justify-content: center;
+}
+
+.img-option{
+  width: auto;
+  height: 200px;
+  cursor: pointer;
+  padding: 10px;
+  border: 4px solid transparent;
+}
+
+.shape-opt{
+  width: auto;
+  height: 150px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.shape-opt:hover{
+  width: auto;
+  height: 150px;
+  cursor: pointer;
+  padding: 10px;
+  border: 4px solid black;
+}
+
+.img-option:hover{
+  border: 4px solid blue;
+}
+
+.skin-option{
+  width: auto;
+  height: 50px;
+  cursor: pointer;
+  padding: 10px;
+  border: 4px solid transparent;
+}
+
+.skin-option:hover{
+  border: 4px solid blue;
+}
+
+.shape-cls{
+  display: inline-block;
+  width: 160px;
+  height: 200px;
+}
+
+.shape-cls>div{
+  text-align: center;
+}
+
+.home-img{
+  height: 400px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.skin-parent{
+  width: 250px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
 .targetColor,
 .attemptColor {
   border: 2px solid grey;
@@ -8,7 +107,30 @@
 .shape {
   height: 150px;
   width: 150px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.inner-shape.expand{
+  height: 150px;
+  width: 150px;
+  border-radius: 0;
+}
+
+.inner-shape.expandskin{
+  height: 250px;
+  width: 250px;
+  border-radius: 0;
 }
 
 .shape:hover {
@@ -18,6 +140,9 @@
 .inner-shape {
   height: 50px;
   width: 50px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  cursor: pointer;
 }
 
 .select-first {
@@ -27,8 +152,10 @@
 }
 
 .display-image {
-  max-width: 50%;
-  max-height: 50%;
+  height: 400px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 form {

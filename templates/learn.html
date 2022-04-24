@@ -4,6 +4,7 @@
     let lesson = {{lesson|tojson}} 
     let lesson_id = {{lesson_id|tojson}}
 </script>
+	<div class="lesson-div">
 	<h1>{{lesson.title}}</h1>
 	<br>
 	<br>
@@ -14,10 +15,11 @@
 	{% endif %}
 	<br>
 	<br>
-	<div class="result-color row">
+	<div class="row result-color">
 
 	</div>
 	<br>
-	<button id="next_button">Next</button>
+	<div class="text-center"><button id="next_button">Next</button></div>
+	<div>
 
 {% endblock %}

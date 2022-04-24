@@ -1,9 +1,10 @@
 {% extends "layout.html" %} {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
 
+<div class="home-div">
 <h3>Do your paintings look washed out? Muddy? Generally lackluster?</h3>
 
-<img
+<img class="home-img"
   src="https://www.truevalue.com/media/magefan_blog/color-wheel-hero_1.jpg"
 />
 
@@ -13,6 +14,7 @@
 </p>
 <br/>
 <br/>
-<button id="learn-btn">Start Learning!</button>
+<div><button id="learn-btn">Start Learning!</button></div>
+</div>
 
 {% endblock %}
