@@ -20,7 +20,8 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: #16e0bd;
+  font-weight: bold;
 }
 
 .home-div{
@@ -114,6 +115,7 @@
   text-align: center;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 .result{
@@ -137,6 +139,13 @@
   transition: 
         transform 750ms cubic-bezier(.0.5, 0, 0.5, 1),
         opacity 250ms linear;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: transform 200ms ease-in-out;
 }
 
 .skin-opt:focus{
@@ -159,6 +168,13 @@
   transition: 
         transform 750ms cubic-bezier(.0.5, 0, 0.5, 1),
         opacity 250ms linear;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: transform 200ms ease-in-out;
 }
 
 .skin-o:hover, option-div:focus .skin-o{
@@ -237,6 +253,11 @@
   margin-left: 50px;
 }
 
+.skin-parent>div{
+  padding-bottom: 15px;
+  text-align: center;
+}
+
 .targetColor,
 .attemptColor {
   border: 2px solid grey;
@@ -273,16 +294,24 @@
   border-radius: 0;
 }
 
-.shape:hover {
-  background: grey;
-}
-
 .inner-shape {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   transition: all 0.4s;
   cursor: pointer;
+}
+
+.inner-shape-skin {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.inner-shape-skin:hover{
+  transform: scale(1.2);
 }
 
 .select-first {

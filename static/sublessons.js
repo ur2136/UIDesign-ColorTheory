@@ -111,7 +111,7 @@ function displaySkinBoxes(sublesson){
 			let new_shape = $('<div class="skin">')
 			$(new_shape).css('background-color',sublesson['colors'][index])
 			$.each(sublesson["add_colors_1"], function(index,value){
-				let inner_shape = $('<div class="inner-shape">')
+				let inner_shape = $('<div class="inner-shape-skin">')
 				let inner_shape_text = $('<div class="inner-text">')
 				$(inner_shape_text).text(sublesson["numbers_1"][index])
 				$(inner_shape).css('background-color',value)
@@ -120,7 +120,7 @@ function displaySkinBoxes(sublesson){
 				$(new_shape).append(inner_shape)
 				$(inner_shape).click(function(event){
 					// $(inner_shape).css('background-color',$(this).attr('color'))
-					// $(inner_shape).addClass("expandskin")
+					$(inner_shape).addClass("expandskin")
 					$(new_shape).css('background-color',$(this).attr('color'))
 					$.post("mark_color_complete", {"lesson_id": lesson_id, 
 					"sublesson_id":sublesson['sublesson_id'],
@@ -143,7 +143,7 @@ function displaySkinBoxes(sublesson){
 			let new_shape = $('<div class="skin">')
 			$(new_shape).css('background-color',sublesson['colors'][index])
 			$.each(sublesson["add_colors_2"], function(index,value){
-				let inner_shape = $('<div class="inner-shape">')
+				let inner_shape = $('<div class="inner-shape-skin">')
 				let inner_shape_text = $('<div class="inner-text">')
 				$(inner_shape_text).text(sublesson["numbers_2"][index])
 				$(inner_shape).css('background-color',value)

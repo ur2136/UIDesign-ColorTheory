@@ -1,8 +1,9 @@
 function displayButtons(lesson){
-	$("#next_button").click(function(){
+	$(".next-btn").click(function(){
 		if(lesson["next_lesson"]=="end"){
 				window.location.href = "/quiz"
 		} else{
+				console.log("here")
 				window.location.href = "/learn/"+lesson["next_lesson"]
 		}
 	})
