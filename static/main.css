@@ -45,6 +45,34 @@
   transition: transform 200ms ease-in-out;
 }
 
+.submit{
+  background-color: #16e0bd;
+  color: #303030;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: transform 200ms ease-in-out;
+}
+
+.submit:hover {
+    transform: scale(1.1);
+}
+
+.quiz-btn{
+  background-color: #16e0bd;
+  color: #303030;
+  text-decoration: none;
+  cursor: poir;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  transition: transform 200ms ease-in-out;nte
+}
+
 #learn-btn:hover {
     transform: scale(1.1);
 }
