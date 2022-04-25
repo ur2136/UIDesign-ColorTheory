@@ -1,0 +1,20 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizend.js') }}"
+></script>
+
+<script>
+  let finalScore = {{finalScore|tojson}};
+</script>
+
+<h1>Quiz</h1>
+
+<p>You scored: {{finalScore}}%</p>
+<p class="resultmessage"></p>
+
+<a href="/" class="submit">Home</a>
+<a href="/quiz" class="submit">Retry the quiz</a>
+
+{% endblock %}

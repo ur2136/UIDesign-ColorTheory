@@ -1,0 +1,84 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizquestion.js') }}"
+></script>
+
+<script>
+  let data = {{data|tojson}};
+</script>
+
+<h1 class="quiz-heading">Quiz</h1>
+
+<h3>Question #{{data.id}}: {{data.question}}</h3>
+
+<h5 class="timer"></h3>
+<div class="row col-md-12">
+  <div class="container col-md-4">
+    <div class="black">
+      <button class="decrease" id="black">-</button>
+      <input type="number" id="blackNum" value="0" />
+      <button class="increase" id="black">+</button>
+    </div>
+
+    <div class="white">
+      <button class="decrease" id="white">-</button>
+      <input type="number" id="whiteNum" value="0" />
+      <button class="increase" id="white">+</button>
+    </div>
+
+    <div class="red">
+      <button class="decrease" id="red">-</button>
+      <input type="number" id="redNum" value="0" />
+      <button class="increase" id="red">+</button>
+    </div>
+
+    <div class="orange">
+      <button class="decrease" id="orange">-</button>
+      <input type="number" id="orangeNum" value="0" />
+      <button class="increase" id="orange">+</button>
+    </div>
+
+    <div class="yellow">
+      <button class="decrease" id="yellow">-</button>
+      <input type="number" id="yellowNum" value="0" />
+      <button class="increase" id="yellow">+</button>
+    </div>
+
+    <div class="green">
+      <button class="decrease" id="green">-</button>
+      <input type="number" id="greenNum" value="0" />
+      <button class="increase" id="green">+</button>
+    </div>
+
+    <div class="blue">
+      <button class="decrease" id="blue">-</button>
+      <input type="number" id="blueNum" value="0" />
+      <button class="increase" id="blue">+</button>
+    </div>
+
+    <div class="purple">
+      <button class="decrease" id="purple">-</button>
+      <input type="number" id="purpleNum" value="0" />
+      <button class="increase" id="purple">+</button>
+    </div>
+  </div>
+
+  <div class="container col-md-8">
+    <div class="attemptColor"></div>
+    <div class="targetColor"><b>TARGET</b></div>
+    <br>
+    <div class="score"></div>
+    <br>
+    <div>
+      <button class="submit">Submit</button>
+      {% if data.id < 5 %}
+      <a class="next submit">Next</a>
+      {% elif data.id == 5 %}
+      <a class="endquiz submit" href="/quizEnd">End Quiz</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
