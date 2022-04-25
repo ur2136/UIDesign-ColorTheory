@@ -59,8 +59,8 @@ function setResults(question) {
   let attemptColor = $(".attemptColor").css("background-color");
   let targetColor = $(".targetColor").css("background-color");
   const result = 100 - calculateResults(attemptColor, targetColor);
-  $(".result").html(result + "%");
-  $(".result").show();
+  $(".score").html(result + "%");
+  $(".score").show();
   $(".next").show();
 
   sendResults(result, question);
@@ -108,7 +108,7 @@ $(document).ready(function () {
   // Set up quiz
   $(".attemptColor").css("background-color", "#ffffff");
   $(".targetColor").css("background-color", data.targetColor);
-  $(".result, .next, .endquiz").hide();
+  $(".score, .next, .endquiz").hide();
 
   startTimer(data.id);
 

@@ -9,7 +9,7 @@
   let data = {{data|tojson}};
 </script>
 
-<h1>Quiz</h1>
+<h1 class="quiz-heading">Quiz</h1>
 
 <h3>Question #{{data.id}}: {{data.question}}</h3>
 
@@ -67,9 +67,9 @@
 
   <div class="container col-md-8">
     <div class="attemptColor"></div>
-    <div class="targetColor">TARGET</div>
-
-    <div class="result"></div>
+    <div class="targetColor"><b>TARGET</b></div>
+    <br>
+    <div class="score"></div>
     <br>
     <div>
       <button class="submit">Submit</button>

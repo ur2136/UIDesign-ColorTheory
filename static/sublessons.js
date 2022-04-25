@@ -62,7 +62,7 @@ function displayOptions(){
 		let new_shape = $('<img class="shape-opt">')
 		if(index + 1 == sublesson["sublesson_id"])
 		{
-			$(new_shape).css({"border-color": "#16e0bd", 
+			$(new_shape).css({"border-color": "#ef9273", 
              "border-width":"4px", 
              "border-style":"solid"})
 		}
@@ -85,7 +85,7 @@ function displayOptionsSkin(){
 		let new_option = $('<div class="skin-o">')
 		if(index + 1 == sublesson["sublesson_id"])
 		{
-			$(new_option).css({"border-color": "#16e0bd", 
+			$(new_option).css({"border-color": "#ef9273", 
              "border-width":"4px", 
              "border-style":"solid"})
 		}
