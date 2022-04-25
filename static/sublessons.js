@@ -197,7 +197,7 @@ function displayButtons()
 				$(".footer").append(next_button)
 				let next_sublesson = parseInt(sublesson["sublesson_id"]) + 1
 				$(next_button).click(function(event){
-					if(next_sublesson < completed.length)
+					if(next_sublesson <= completed.length)
 					{
 						window.location.href = "/learn/"+lesson_id+"/"+ next_sublesson
 					}
