@@ -61,14 +61,19 @@ function setResults(question) {
   const result = 100 - calculateResults(attemptColor, targetColor);
   $(".score").html(result + "%");
   $(".score").show();
-  $(".next").show();
+  $(".next-btn").show();
 
   sendResults(result, question);
 
   if (question < 5) {
-    $(".next").attr("href", "/quiz/" + parseInt(question + 1));
+    $(".next-btn").click(function (event) {
+      window.location.href = "/quiz/" + parseInt(question + 1);
+    });
   } else {
     $(".endquiz").show();
+    $(".endquiz").click(function (event) {
+      window.location.href = "/quizEnd";
+    });
   }
 }
 
@@ -108,7 +113,7 @@ $(document).ready(function () {
   // Set up quiz
   $(".attemptColor").css("background-color", "#ffffff");
   $(".targetColor").css("background-color", data.targetColor);
-  $(".score, .next, .endquiz").hide();
+  $(".score, .next-btn, .endquiz").hide();
 
   startTimer(data.id);
 

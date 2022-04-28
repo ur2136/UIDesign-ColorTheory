@@ -9,12 +9,15 @@
   let finalScore = {{finalScore|tojson}};
 </script>
 
-<h1>Quiz</h1>
+<div class="quiz-container">
+  <h1 class="quiz-heading">Quiz</h1>
 
-<p>You scored: {{finalScore}}%</p>
-<p class="resultmessage"></p>
+  <p>You scored: {{finalScore}}%</p>
+  <p class="resultmessage"></p>
 
-<a href="/">Home</a>
-<a href="/quiz">Retry the quiz</a>
-
+  <div class="quiz-buttons">
+    <button class="home-btn">Home</button>
+    <a id="quiz-btn" href="/quiz">Retry the quiz</a>
+  </div>
+</div>
 {% endblock %}
