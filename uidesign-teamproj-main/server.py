@@ -181,7 +181,6 @@ def get_completed(lesson_id):
 
 @app.route('/quiz')
 def quiz_home():
-    populate_questions()
     return render_template('quiz_home.html')  
 
 @app.route('/quiz/<id>')
@@ -211,6 +210,7 @@ def add_score():
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
 # HELPER FUNCTIONS
+'''
 def populate_questions():
     chars = '0123456789ABCDEF'
     colors = ['#'+''.join(random.sample(chars,6)) for i in range(5)]
@@ -222,5 +222,40 @@ def populate_questions():
             "targetColor": colors[i],
             "userResult": None,
         }
+'''
+
+quiz_data = {
+    1: {
+        "id": 1,
+        "question": "Using what you know about shadows, match the blue shadow below.",
+        "targetColor": "#49557A",
+        "userResult": None,
+    },
+    2: {
+        "id": 2,
+        "question": "Using what you know about shadows, match the green shadow below.",
+        "targetColor": "#406C2B",
+        "userResult": None,
+    }, 
+    3: {
+        "id": 3,
+        "question": "Using what you know about mixing skin color, match the cool-toned, fair skin tone below.",
+        "targetColor": "#B39E8D",
+        "userResult": None,
+    }, 
+    4: {
+        "id": 4,
+        "question": "Using what you know about mixing skin color, match the warm-toned, deep skin tone below.",
+        "targetColor": "#682F05",
+        "userResult": None,
+    }, 
+    5: {
+        "id": 5,
+        "question": "Using what you know about shadow, match the orange shadow below.",
+        "targetColor": "#D5961D",
+        "userResult": None,
+    }, 
+}
+        
 if __name__ == '__main__':
    app.run(debug = True)
