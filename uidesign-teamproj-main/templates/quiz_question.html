@@ -1,0 +1,89 @@
+{% extends "layout.html" %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizquestion.js') }}"
+></script>
+
+<script>
+  let data = {{data|tojson}};
+</script>
+
+<div class="quiz-container">
+  <h1 class="quiz-heading">Quiz</h1>
+
+  <h3>Question #{{data.id}}: {{data.question}}</h3>
+
+  <h5 class="timer"></h5>
+  <div class="quiz-ui">
+    <div class="droplet-container">
+      <div class="row">
+        <div class="black">
+          <button class="decrease" id="black">-</button>
+          <input type="number" readonly id="blackNum" value="0" />
+          <button class="increase" id="black">+</button>
+        </div>
+
+        <div class="white">
+          <button class="decrease" id="white">-</button>
+          <input type="number" readonly id="whiteNum" value="0" />
+          <button class="increase" id="white">+</button>
+        </div>
+
+        <div class="red">
+          <button class="decrease" id="red">-</button>
+          <input type="number" readonly id="redNum" value="0" />
+          <button class="increase" id="red">+</button>
+        </div>
+
+        <div class="orange">
+          <button class="decrease" id="orange">-</button>
+          <input type="number" readonly id="orangeNum" value="0" />
+          <button class="increase" id="orange">+</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="yellow">
+          <button class="decrease" id="yellow">-</button>
+          <input type="number" readonly id="yellowNum" value="0" />
+          <button class="increase" id="yellow">+</button>
+        </div>
+
+        <div class="green">
+          <button class="decrease" id="green">-</button>
+          <input type="number" readonly id="greenNum" value="0" />
+          <button class="increase" id="green">+</button>
+        </div>
+
+        <div class="blue">
+          <button class="decrease" id="blue">-</button>
+          <input type="number" readonly id="blueNum" value="0" />
+          <button class="increase" id="blue">+</button>
+        </div>
+
+        <div class="purple">
+          <button class="decrease" id="purple">-</button>
+          <input type="number" readonly id="purpleNum" value="0" />
+          <button class="increase" id="purple">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-colors">
+      <div class="attemptColor"></div>
+      <div class="targetColor"><b>TARGET</b></div>
+      <br />
+      <div class="score"></div>
+      <br />
+      <div>
+        <button class="submit">Submit</button>
+        {% if data.id < 5 %}
+        <button class="next-btn">Next</button>
+        {% elif data.id == 5 %}
+        <button class="endquiz">End Quiz</button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

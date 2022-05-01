@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'quizhome.js') }}"
+></script>
+
+<div class="quiz-container">
+  <h1 class="quiz-heading">Quiz</h1>
+
+  <p>
+    You will be given 5 questions asking you to match the colors closest to the
+    target. Each question must be answered in 30 seconds before moving on to the
+    next.
+  </p>
+
+  <p>Use what you learned about shadows and blushes to match the colors!</p>
+
+  <br />
+  <button class="quiz-btn">Start Now!</button>
+</div>
+{% endblock %}

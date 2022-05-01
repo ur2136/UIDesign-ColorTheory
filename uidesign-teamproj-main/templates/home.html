@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block content %}
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename = 'home.js') }}"
+></script>
+
+<div class="home-main">
+  <div class="home-div">
+    <h1 class="home-heading">Sir Mix A Lot's</h1>
+    <h2 class="home-subheading">COLOR THEORY</h2>
+
+    <p class="home-content">
+      Learn about common paint mixing mistakes and practice blending colors to
+      get your desired paint!
+    </p>
+    <br />
+    <div class="home-buttons">
+      <button id="learn-btn">Start Learning!</button>
+      <a id="quiz-btn" href="/quiz">Quiz Yourself</a>
+    </div>
+  </div>
+  <div>
+    <img
+      class="home-img"
+      src="https://onextrapixel.com/wp-content/uploads/2019/12/what-is-color-theory.png"
+    />
+  </div>
+</div>
+{% endblock %}
