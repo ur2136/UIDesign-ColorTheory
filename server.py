@@ -10,6 +10,7 @@ lesson_data = {
         "text": "A common mistake beginners make is adding black to the local color to make its shadow. Adding black makes colors grey and muddy. Instead, a shadow should generally be made with the local color's complimentary color and a shade of blue. Click through some of the local colors below to see examples.",
         "colors": ["yellow","orange","red"],
         "images": ["https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/only-a-lemon-nancy-merkle.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_8x0BkegbhIAptLEOL8Wn4xUAfb8hGtk3A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbhUir575EAqe_2WBtUIdZvPgmsHZ3cZnOxGrXnQBmln1HHsOHKdESnslGHWlyDCK_zl8&usqp=CAU"],
+        "images_text": ["Let's try painting this lemon. \n Click on the circular buttons below to see how to make a shadow for yellow step-by-step.", "Let's try painting this orange. \n Click on the circular buttons below to see how to make a shadow for orange step-by-step.", "Let's try painting this apple. \n Click on the circular buttons below to see how to make a shadow for red step-by-step."],
         "next_lesson": "2",
         "sublessons": {
             "1":{
@@ -65,7 +66,7 @@ lesson_data = {
                 "clicked_2":[],
                 "result_colors_1": ["#80456", "#AA6739"],
                 "result_colors_2": [],
-                "display_text": ["Start out by mixing equal amounts of red, blue, and yellow (the primary colors)"]
+                "display_text": ["Start out by mixing equal amounts of red, blue, and yellow (the primary colors). Click on the circular buttons below in order to see what happens step-by-step."]
             },
             "2":{
                 "completed": "False",
@@ -98,8 +99,39 @@ lesson_data = {
         }
     }
 }
-# ideally we want to randomize the question order
-quiz_data = {}
+
+quiz_data = {
+    1: {
+        "id": 1,
+        "question": "Using what you know about shadows, match the blue shadow below.",
+        "targetColor": "#49557A",
+        "userResult": None,
+    },
+    2: {
+        "id": 2,
+        "question": "Using what you know about shadows, match the green shadow below.",
+        "targetColor": "#406C2B",
+        "userResult": None,
+    }, 
+    3: {
+        "id": 3,
+        "question": "Using what you know about mixing skin color, match the cool-toned, fair skin tone below.",
+        "targetColor": "#B39E8D",
+        "userResult": None,
+    }, 
+    4: {
+        "id": 4,
+        "question": "Using what you know about mixing skin color, match the warm-toned, deep skin tone below.",
+        "targetColor": "#682F05",
+        "userResult": None,
+    }, 
+    5: {
+        "id": 5,
+        "question": "Using what you know about shadow, match the orange shadow below.",
+        "targetColor": "#D5961D",
+        "userResult": None,
+    }, 
+}
 
 @app.route('/')
 def home():
@@ -116,8 +148,10 @@ def learn_sublesson(lesson_id, sublesson_id):
     lesson = lesson_data[lesson_id]
     sublesson = lesson['sublessons'][sublesson_id]
     images=[]
+    images_text =[]
     if "images" in lesson:
         images=lesson["images"] 
+        images_text=lesson["images_text"]
     
     options=[]
     if "options" in lesson:
@@ -128,7 +162,7 @@ def learn_sublesson(lesson_id, sublesson_id):
         completed.append(lesson["sublessons"][sub]["completed"])
 
 
-    return render_template('learn_sublesson.html',lesson_id=lesson_id,sublesson=sublesson,images=images, completed=completed, options=options)
+    return render_template('learn_sublesson.html',lesson_id=lesson_id,sublesson=sublesson,images=images, completed=completed, options=options, images_text=images_text)
 
 # AJAX FUNCTIONS
 @app.route('/learn/<lesson_id>/mark_color_complete', methods=["POST"])
@@ -178,7 +212,6 @@ def get_completed(lesson_id):
 
 @app.route('/quiz')
 def quiz_home():
-    populate_questions()
     return render_template('quiz_home.html')  
 
 @app.route('/quiz/<id>')
@@ -208,6 +241,9 @@ def add_score():
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 
 # HELPER FUNCTIONS
+'''
+This function can be used when we want random colors for quesitons
+
 def populate_questions():
     chars = '0123456789ABCDEF'
     colors = ['#'+''.join(random.sample(chars,6)) for i in range(5)]
@@ -219,5 +255,7 @@ def populate_questions():
             "targetColor": colors[i],
             "userResult": None,
         }
+'''
+        
 if __name__ == '__main__':
    app.run(debug = True)
