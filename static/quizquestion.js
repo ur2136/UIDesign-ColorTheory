@@ -59,7 +59,7 @@ function setResults(question) {
   let attemptColor = $(".attemptColor").css("background-color");
   let targetColor = $(".targetColor").css("background-color");
   const result = 100 - calculateResults(attemptColor, targetColor);
-  $(".score").html(result + "%");
+  $(".score").html(result + "% accuracy");
   $(".score").show();
   $(".next-btn").show();
 

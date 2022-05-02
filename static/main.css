@@ -3,6 +3,10 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
+.score{
+  font-weight: bold;
+}
+
 .container-fluid {
   padding: 75px 200px;
 }
