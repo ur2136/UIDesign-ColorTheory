@@ -19,4 +19,7 @@ function mapResult(score) {
 
 $(document).ready(function () {
   mapResult(finalScore);
+  $(".home-btn").click(function(event){
+		window.location.href = "/"
+	})
 });
